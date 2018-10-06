@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#322a5d</color>
+    <color name="colorPrimaryDark">#373575</color>
+    <color name="colorAccent">#322a5d</color>
+    <color name="infosyschuja">#727aa4</color>
+    <color name="infosyskomaa">#322a5d</color>
+    <color name="white">#ffffff</color>
+    <color name="green">#008000</color>
+    <color name="red">#FF0000</color>
+    <color name="kijivu">#e6e6e6</color>
+
+</resources>

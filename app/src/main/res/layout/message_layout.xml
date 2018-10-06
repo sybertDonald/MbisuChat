@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/kijivu"
+    tools:context=".Chat.MessageActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bar_layout"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbarsms"
+            android:background="@color/colorAccent"
+            android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
+            
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:id="@+id/messageimage"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35sp"
+                android:id="@+id/messageusername"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:fontFamily="@font/font2"
+                />
+
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+    
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclersms"
+        android:layout_below="@+id/bar_layout"
+        android:layout_above="@+id/buttom"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5sp"
+        android:id="@+id/buttom"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/smssend"
+            android:background="@android:color/transparent"
+            android:hint="Type a message...."
+            android:layout_toStartOf="@+id/btnsend"
+            android:layout_centerVertical="true"
+            />
+        <ImageButton
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:id="@+id/btnsend"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_action_send"
+
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

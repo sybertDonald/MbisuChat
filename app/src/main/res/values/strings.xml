@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MbisuChat</string>
+    <string name="action_settings">Settings</string>
+    <string name="logout">Logout</string>
+    <string name="to_delete_swipe_the_plan_from_list">to delete swipe the plan from list</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

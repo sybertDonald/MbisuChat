@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title"
+        android:text="Add Your Plan"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="#fff"
+        android:fontFamily="@font/font2"
+        android:layout_margin="5dp"
+        android:background="@color/colorAccent"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/plandate"
+        android:text="date"
+        android:fontFamily="@font/font2"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="#fff"
+        android:layout_margin="5dp"
+        android:background="@color/colorAccent"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:id="@+id/plantitle"
+        android:hint="plan title"
+        android:gravity="center"
+        android:maxLength="22"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_margin="5dp"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:id="@+id/writeplan"
+        android:hint="not more than 100 words"
+        android:gravity="left"
+        android:maxLength="350"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+       <Button
+           android:layout_width="150dp"
+           android:layout_height="60dp"
+           android:layout_margin="10dp"
+           android:id="@+id/cancelplan"
+           android:text="cancel"
+           android:textStyle="bold"
+           android:textSize="18dp"
+           android:textColor="@color/colorAccent"
+           android:background="@drawable/btn_shape_round"
+
+           />
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:id="@+id/submitplan"
+            android:text="submit"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="@color/colorAccent"
+            android:background="@drawable/btn_shape_round"
+
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
