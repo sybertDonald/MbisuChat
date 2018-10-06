@@ -37,9 +37,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_layout);
 
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-
-
         dialog = new ProgressDialog(this);
         auth = FirebaseAuth.getInstance();
 

@@ -17,12 +17,14 @@ import java.util.List;
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     private android.content.Context context;
     private List<User> muser;
+    private boolean isChat;
 
 
-    public UserAdapter(android.content.Context mcontext, List<User> muser) {
+    public UserAdapter(android.content.Context mcontext, List<User> muser,boolean isChat) {
 
         this.context = mcontext;
         this.muser = muser;
+        this.isChat = isChat;
     }
 
     @NonNull
@@ -44,6 +46,22 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             Glide.with(context).load(musers.getImageURL()).into(viewHolder.userprofile);
         }
 
+        if (isChat){
+            if (musers.getStatus().equals("online")){
+
+                viewHolder.useron.setVisibility(View.VISIBLE);
+                viewHolder.useroff.setVisibility(View.GONE);
+            }
+            else
+            {
+                viewHolder.useron.setVisibility(View.GONE);
+                viewHolder.useroff.setVisibility(View.VISIBLE);
+            }
+        }else {
+            viewHolder.useron.setVisibility(View.GONE);
+            viewHolder.useroff.setVisibility(View.GONE);
+        }
+
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,12 +80,17 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView usernamechat;
         ImageView userprofile;
+        ImageView useron;
+        ImageView useroff;
+
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             usernamechat = itemView.findViewById(R.id.usernamechat);
             userprofile = itemView.findViewById(R.id.userimage);
+            useron = itemView.findViewById(R.id.useron);
+            useroff = itemView.findViewById(R.id.useroff);
         }
     }
 }

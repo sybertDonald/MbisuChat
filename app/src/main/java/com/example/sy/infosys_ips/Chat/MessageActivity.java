@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.sy.infosys_ips.MainActivity;
 import com.example.sy.infosys_ips.R;
 import com.example.sy.infosys_ips.models.Chat;
 import com.example.sy.infosys_ips.models.User;
@@ -67,7 +68,8 @@ public class MessageActivity extends AppCompatActivity {
         toolbarsms.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
 
@@ -202,12 +204,12 @@ public class MessageActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Status("Online");
+        Status("online");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Status("Offline");
+        Status("offline");
     }
 }

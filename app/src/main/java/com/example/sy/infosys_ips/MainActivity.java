@@ -126,9 +126,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if (id == R.id.logout_user){
 
             FirebaseAuth.getInstance().signOut();
-            Intent returnlogin = new Intent(getApplicationContext(), LoginActivity.class);
+            Intent returnlogin = new Intent(getApplicationContext(), LoginActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(returnlogin);
-            finish();
+
             return true;
         }
 

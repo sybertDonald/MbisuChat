@@ -14,8 +14,13 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.example.sy.infosys_ips.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -23,6 +28,7 @@ public class ChatActivity extends AppCompatActivity {
     Toolbar toolbar12;
     TabLayout tabLayout;
     ViewPager viewPager;
+    FirebaseUser userid;
 
 
     @Override
@@ -33,6 +39,7 @@ public class ChatActivity extends AppCompatActivity {
         toolbar12 = findViewById(R.id.toolbar12);
         setSupportActionBar(toolbar12);
         getSupportActionBar().setTitle("Chat");
+        userid = FirebaseAuth.getInstance().getCurrentUser();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar12.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,5 +93,26 @@ public class ChatActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return title.get(position);
         }
+    }
+
+
+    void Status(String status){
+
+        DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference("USERS").child(userid.getUid());
+        HashMap<String,Object> hashMap = new HashMap<>();
+        hashMap.put("status",status);
+        reference2.updateChildren(hashMap);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Status("online");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Status("offline");
     }
 }

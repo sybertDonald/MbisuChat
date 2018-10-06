@@ -66,7 +66,7 @@ public class UserFragment extends Fragment {
 
                 }
 
-                adapter = new UserAdapter(getContext(),muser);
+                adapter = new UserAdapter(getContext(),muser,false);
                 recyclerView.setAdapter(adapter);
 
             }

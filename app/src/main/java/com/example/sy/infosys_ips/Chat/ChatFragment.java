@@ -34,7 +34,7 @@ public class ChatFragment extends Fragment {
     RecyclerView recyclerViewchat;
     DatabaseReference reference,reference1;
     List<User> mUser;
-    ChatAdapter adapter;
+    UserAdapter adapter;
     FirebaseUser fuser;
     List<ChatList> userList;
 
@@ -95,7 +95,7 @@ public class ChatFragment extends Fragment {
                     }
                 }
 
-                adapter = new ChatAdapter(getContext(),mUser);
+                adapter = new UserAdapter(getContext(),mUser,true);
                 recyclerViewchat.setAdapter(adapter);
             }
 
@@ -105,5 +105,6 @@ public class ChatFragment extends Fragment {
             }
         });
         }
+
 
 }
