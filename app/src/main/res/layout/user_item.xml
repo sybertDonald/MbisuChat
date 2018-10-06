@@ -32,7 +32,7 @@
         android:layout_height="15sp"
         app:civ_border_color="@color/green"
         android:id="@+id/status"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_toRightOf="@+id/userimage"
         android:layout_toEndOf="@+id/userimage"
         android:layout_below="@+id/userimage"
