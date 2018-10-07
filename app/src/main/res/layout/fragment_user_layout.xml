@@ -6,10 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".Chat.UserFragment">
 
+
+   <EditText
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/searchuser"
+       android:padding="10sp"
+       android:hint="Search User...."
+       android:textColor="@color/colorAccent"
+       android:textSize="20sp"
+       android:fontFamily="@font/font2"
+       android:layout_margin="5sp"
+       android:drawableLeft="@drawable/ic_action_search"
+       />
+
+
    <android.support.v7.widget.RecyclerView
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:id="@+id/recycleruser"
+       android:layout_below="@+id/searchuser"
        >
 
    </android.support.v7.widget.RecyclerView>
