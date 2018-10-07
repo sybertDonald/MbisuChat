@@ -44,7 +44,7 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="15sp"
         android:layout_height="15sp"
-        app:civ_border_color="@color/kijivu"
+        app:civ_border_color="@color/kijivu2"
         android:id="@+id/useroff"
         android:visibility="gone"
         android:src="@mipmap/infosysimage"
