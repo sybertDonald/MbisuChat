@@ -122,7 +122,6 @@ public class UserFragment extends Fragment {
 
                     User user = snapshot.getValue(User.class);
                     assert user !=null;
-                    assert firebaseUser !=null;
                     if (!user.getId().equals(firebaseUser.getUid())){
                         muser.add(user);
                     }

@@ -1,6 +1,16 @@
 package com.example.sy.infosys_ips.models;
 
 public class Chat {
+    public boolean isIsseen() {
+        return isseen;
+    }
+
+    public void setIsseen(boolean isseen) {
+        this.isseen = isseen;
+    }
+
+    boolean isseen;
+
     String sender;
 
     public String getSender() {
@@ -29,7 +39,8 @@ public class Chat {
 
     String receiver;
 
-    public Chat(String sender, String receiver, String message) {
+    public Chat(String sender, String receiver, String message , boolean isseen) {
+        this.isseen = isseen;
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;

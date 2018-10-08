@@ -46,6 +46,7 @@ public class MessageActivity extends AppCompatActivity {
     List<Chat> mchat;
     MessageAdapter adapter;
     String idco;
+    ValueEventListener seenListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +117,34 @@ public class MessageActivity extends AppCompatActivity {
         });
 
 
+        seenMessage(idco);
+    }
+
+
+    void seenMessage(final String useridnow){
+         reference = FirebaseDatabase.getInstance().getReference("CHATS");
+        seenListener = reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+
+                    Chat chat = snapshot.getValue(Chat.class);
+                    if (chat.getReceiver().equals(userid.getUid()) && chat.getSender().equals(useridnow)){
+
+                        HashMap<String,Object> hashMap = new HashMap<>();
+                        hashMap.put("isseen",true);
+                        snapshot.getRef().updateChildren(hashMap);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 
    void SendMessage(String sender ,String receiver,String message){
@@ -124,6 +153,7 @@ public class MessageActivity extends AppCompatActivity {
        hashMap.put("sender",sender);
        hashMap.put("receiver",receiver);
        hashMap.put("message",message);
+       hashMap.put("isseen",false);
 
        referencesms.child("CHATS").push().setValue(hashMap);
 
@@ -210,6 +240,7 @@ public class MessageActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        reference.removeEventListener(seenListener);
         Status("offline");
     }
 }

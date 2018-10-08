@@ -27,8 +27,16 @@
         android:id="@+id/smschat"
         android:background="@drawable/background_left"
         android:fontFamily="@font/font2"
+        />
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="seen"
+        android:visibility="gone"
+        android:layout_below="@+id/smschat"
+        android:textColor="@color/black"
+        android:id="@+id/isseen"
         />
 
 </RelativeLayout>
