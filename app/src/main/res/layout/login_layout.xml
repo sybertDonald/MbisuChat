@@ -32,6 +32,7 @@
                 android:hint="mbisucode@gmail.com"
                 android:layout_width="match_parent"
                 android:id="@+id/emaillogin"
+                android:drawableLeft="@drawable/ic_action_email"
                 android:inputType="textEmailAddress"
                 android:layout_height="wrap_content"/>
 
@@ -46,6 +47,7 @@
                 android:hint="******"
                 android:inputType="textPassword"
                 android:id="@+id/passwordlogin"
+                android:drawableLeft="@drawable/ic_action_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
