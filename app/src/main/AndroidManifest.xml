@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -32,7 +33,10 @@
         <activity android:name=".Authentication.PasswordRecoverActivity" />
         <activity android:name=".Chat.ChatActivity" />
         <activity android:name=".Chat.MessageActivity" />
-        <activity android:name=".Profile.EditProfileActivity"></activity>
+        <activity android:name=".Profile.EditProfileActivity" />
+        <activity android:name=".CheckConnectionActivity"
+            android:noHistory="true">
+        </activity>
     </application>
 
 </manifest>

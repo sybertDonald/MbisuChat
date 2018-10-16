@@ -1,7 +1,10 @@
 package com.example.sy.infosys_ips.Authentication;
 
 import android.app.ProgressDialog;
+import android.app.Service;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -14,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sy.infosys_ips.CheckConnectionActivity;
 import com.example.sy.infosys_ips.MainActivity;
 import com.example.sy.infosys_ips.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -32,6 +36,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     FirebaseUser firebaseUser;
 
     EditText emaillogin,passwordlogin;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +108,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
                 else
                     {
+                        Check();
                     Toast.makeText(LoginActivity.this, " wrong username or password", Toast.LENGTH_SHORT).show();
                 }
 
@@ -113,11 +119,34 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onStart() {
         super.onStart();
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (firebaseUser != null){
-            Intent godirect = new Intent(getApplicationContext(),MainActivity.class);
-            startActivity(godirect);
-            finish();
+
+    }
+
+
+    public void Check(){
+        ConnectivityManager connectivityManager = (ConnectivityManager)
+                getSystemService(Service.CONNECTIVITY_SERVICE);
+
+        assert connectivityManager != null;
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+        if (networkInfo != null && networkInfo.isConnected()){
+
+            firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+            if (firebaseUser != null){
+                Intent godirect = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(godirect);
+                finish();
+            }
+        }
+
+        else{
+
+            Toast.makeText(this, "internet is unavailable", Toast.LENGTH_SHORT).show();
+            Intent gomain = new Intent(getApplicationContext(),CheckConnectionActivity.class);
+            startActivity(gomain);
+        }
         }
     }
-}
+
+
