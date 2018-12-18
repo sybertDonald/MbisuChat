@@ -62,7 +62,7 @@
         android:layout_below="@+id/usernamechat"
         android:layout_toRightOf="@+id/userimage"
         android:layout_marginTop="10dp"
-        android:text="kama kawaida"
+        android:text="last sms"
         android:maxLines="1"
         android:textColor="@android:color/black"
         android:paddingTop="5sp"
