@@ -64,6 +64,7 @@
         android:layout_marginTop="10dp"
         android:text="kama kawaida"
         android:maxLines="1"
+        android:textColor="@android:color/black"
         android:paddingTop="5sp"
         android:id="@+id/lst_msg"
         android:layout_marginLeft="20sp"
